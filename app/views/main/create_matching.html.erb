@@ -1,0 +1,123 @@
+<div class="postForm">
+		<div class="container">
+			<div class="card">
+				<div class="card-body">
+					<%= form_tag(create_path, method: "POST") do %>
+	<% if @type == '0' %>
+					  <div class="formContainer">
+						<span class="formTitle light"><i class="fas fa-edit fa-sm fa-fw"></i>&ensp;제목&ensp;<i class="fas fa-asterisk fa-xs"></i></span>
+						<div class="row">
+						  <div class="col col-md-5">
+							<%= text_field_tag('title', nil, {:id => 'title', :required => true, :type => 'text', :class => 'form-control', :placeholder => '제목'}) %>
+						  </div>
+						</div>
+					  </div>
+					  <div class="formContainer">
+						<span class="formTitle light"><i class="fas fa-bars fa-sm fa-fw"></i>&ensp;게임 모드&ensp;<i class="fas fa-asterisk fa-xs"></i></span>
+						<div class="row">
+						  <div class="col col-md-2">
+							<%= select_tag "gamemode", "<option>빠른 대전</option><option>경쟁전</option>".html_safe, :class => 'selectpicker', :title => '플레이', :'data-width' => 'fit', :required => 'true' %>
+						  </div>
+						</div>
+					  </div>
+					  <div class="formContainer">
+						  <span class="formTitle light"><i class="far fa-circle fa-sm fa-fw"></i>&ensp;주로 플레이하는 역할군&ensp;<i class="fas fa-asterisk fa-xs"></i></span>
+						  <div class="hidden">
+							<%= radio_button_tag 'role', '공격군', false, :class => 'role1' %>
+							<%= radio_button_tag 'role', '돌격군', false, :class => 'role2' %>
+							<%= radio_button_tag 'role', '지원군', false, :class => 'role3' %>
+						  </div>
+						  <div class="row">
+							<div class="col col-md-2">
+								<div class="image-cover">
+									<img src="/assets/dps.png" class="w-50 role-image front" alt="dps" id="dps-front" oncontextmenu="return false">
+									<img src="/assets/dps_colored.png" class="w-50 role-image back" alt="dps" id="dps-back" oncontextmenu="return false">
+								</div>
+							</div>
+							<div class="col col-md-2">
+								<div class="image-cover">
+									<img src="/assets/tank.png" class="w-50 role-image front" alt="tank" id="tank-front" oncontextmenu="return false">
+									<img src="/assets/tank_colored.png" class="w-50 role-image back" alt="tank" id="tank-back" oncontextmenu="return false">
+								</div>
+							</div>
+							<div class="col col-md-2">
+								<div class="image-cover">
+									<img src="/assets/support.png" class="w-50 role-image front" alt="support" id="support-front" oncontextmenu="return false">
+									<img src="/assets/support_colored.png" class="w-50 role-image back" alt="support" id="support-back" oncontextmenu="return false">
+								</div>
+							</div>
+						  </div>
+					  </div>
+					  <div class="formContainer">
+						<span class="formTitle light"><i class="fas fa-align-left fa-sm fa-rotate-270 fa-fw"></i>&ensp;현재 티어</span>
+						<%= select_tag "tier", "<option>브론즈</option><option>실버</option><option>골드</option><option>플래티넘</option><option>다이아몬드</option><option>마스터</option><option>그랜드마스터</option>".html_safe, :class => 'selectpicker', :title => '티어', :'data-width' => 'fit' %>
+					  </div>
+					  <div class="formContainer">
+						<span class="formTitle light"><i class="far fa-calendar-alt fa-sm fa-fw"></i>&ensp;플레이 가능한 날짜&ensp;<i class="fas fa-asterisk fa-xs"></i></span>
+						<div class="row">
+						  <div class="col matching-div">
+							<input type="date" name="playabletime" class="form-control" required>
+						  </div>
+						</div>
+					  </div>
+					  <div class="formContainer">
+						<span class="formTitle light"><i class="fas fa-microphone fa-sm fa-fw"></i>&ensp;마이크 사용 여부&ensp;<i class="fas fa-asterisk fa-xs"></i></span>
+						<div class="radio">
+							<%= radio_button_tag 'use_mic', '사용', false, :required => 'true' %>&nbsp;
+							<%= label_tag 'mic_label', '사용', :for => 'use_mic___' %>
+							<br>
+							<%= radio_button_tag 'use_mic', '미사용', false %>&nbsp;
+							<%= label_tag 'mic_label', '미사용', :for => 'use_mic____' %>
+						</div>
+					  </div>
+					  <div class="formContainer">
+						<span class="formTitle light"><i class="fas fa-users fa-sm fa-fw"></i>&ensp;모집 인원&ensp;<i class="fas fa-asterisk fa-xs"></i></span>
+						<div class="row">
+						  <div class="col col-md-6">
+							<%= select_tag "member", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>".html_safe, :class => 'selectpicker', :title => '인원 선택', :'data-width' => 'fit', :required => 'true' %>
+						  </div>
+						</div>
+					  </div>
+					  <div class="formContainer">
+						<span class="formTitle light"><i class="fas fa-hashtag fa-sm fa-fw"></i>&ensp;배틀태그&ensp;<i class="fas fa-asterisk fa-xs"></i></span>
+						<div class="row">
+						  <div class="col matching-div">
+							<%= text_field_tag('battletag', nil, {:id => 'battletag', :required => true, :type => 'text', :class => 'form-control', :placeholder => '배틀태그'}) %>
+						  </div>
+						</div>
+					  </div>
+					  <div class="formContainer">
+						<span class="formTitle light"><i class="fas fa-comment-alt fa-sm fa-fw"></i>&ensp;추가 설명&ensp;<i class="fas fa-asterisk fa-xs"></i></span>
+						  <%= text_area_tag('comment', nil, {:id => 'comment', :class => 'form-control', :required => true, :rows => '5', :placeholder => '게임을 같이 할 동료들에게 하고 싶은 말과 상세 정보를 적어주세요!', :style => 'resize: none;'}) %>
+					  </div>
+					  <div class="formEnd">
+						<button type="submit" class="btn btn-outline-primary btn-lg" id="submitBtn">매칭 모집</button>
+					  </div>
+<% elsif @type == '1' %>
+
+<% elsif @type == '2' %>
+
+<% end %>
+				<% end %>
+				</div>
+			</div>
+		</div>
+	<hr class="seperator">
+	<div class="POT-footer">
+		<div class="footer-inner">
+			<div class="container">
+				<div class="information">
+					<div class="project-name text-dark medium">
+						POT
+					</div>
+					<div class="copyright text-dark light">
+						© 2018 knight7024@naver.com, All Rights Reserved.
+					</div>
+					<ul class="footer-links">
+						<li><a href="https://blog.naver.com/knight7024" target="_blank"><i class="naver-blog"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

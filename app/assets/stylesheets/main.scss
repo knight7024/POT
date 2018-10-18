@@ -1,0 +1,326 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.matchingForm, .postForm {
+	overflow: hidden;
+}
+
+.matchingForm {
+	.content-text {
+		margin-bottom: 5vh;
+		min-width: 300px;
+	}
+	
+	.game-text-ko {
+		font-weight: 500;
+		font-size: 2.5rem;
+		text-transform: uppercase;
+		color: white;
+	}
+
+	.game-text-en {
+		font-size: smaller;
+		text-transform: uppercase;
+		color: #979a9a;
+		font-weight: 300;
+	}
+
+	.game-info {
+		text-transform: uppercase;
+		color: #d0d3d4;
+		font-weight: 300;
+		font-size: 1rem;
+	}
+
+	.game-image {
+		padding-bottom: 2vh;
+	}
+
+	.now-matching {
+		color: #ff7f00;
+		font-weight: 500;
+		font-size: larger;
+	}
+
+	.matching-btn {
+		margin-top: 1.5vh;
+		width: 90%;
+		height: 7vh;
+		border-color: transparent;
+	}
+
+	.carousel-inner {
+		.header {
+			position: absolute;
+			top: 15vh;
+			width: 100vw;
+		}
+		
+		.table {
+			color: white;
+			thead th {
+				border-color: transparent;
+			}
+
+			tbody tr {
+				font-size: x-large;
+				font-weight: bold;
+				cursor: pointer;
+				transition: .3s ease;
+			}
+
+			tbody tr:hover {
+				background-color: RGBA(236, 240, 241, 0.30);
+			}
+		}
+	}
+	
+	.content-info {
+		font-size: small;
+		color: #d0d3d4;
+		font-weight: 300;
+	}
+
+	.select-image {
+		width: 100px;
+		padding-bottom: 2vh;
+		transition: .3s ease;
+		cursor: pointer;
+	}
+
+	.select-image:hover {
+		opacity: 0.5;
+	}
+
+	.carousel-indicators-custom {
+		position: absolute;
+		z-index: 15;
+		top: 15vh;
+		left: 50%;
+		transform: translateX(-60%);
+	}
+
+	.carousel-matching-img {
+		position: relative;
+		width: 100vw;
+		height: calc(100vh - 1px);
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.refresh-icon {
+		-webkit-transition: 0.5s ease-in-out;
+		-moz-transition:  0.5s ease-in-out;
+		transition:  0.5s ease-in-out;
+	}
+
+	.refresh-icon:hover {
+		  -webkit-transform: rotateZ(360deg);
+		  -moz-transform: rotateZ(360deg);
+		  transform: rotateZ(360deg);
+	}
+
+	.table {
+		overflow: hidden;
+		tbody {
+			display: block;
+			width: calc(100% + 18px);
+			overflow-y: auto;
+			height: 55vh;
+		}
+
+		thead, tr {
+			display: flex;
+			width: 100%;
+		}
+	}
+	
+	.modal-confirm {		
+		color: #636363;
+		width: 325px;
+		.modal-content {
+			padding: 20px;
+			border-radius: 5px;
+			border: none;
+		}
+
+		.modal-header {
+			display: unset;
+			border-bottom: none;   
+			position: relative;
+		}
+
+		h4 {
+			text-align: center;
+			font-size: 26px;
+			margin: 30px 0 -15px;
+		}
+
+		.form-control, .btn {
+			min-height: 40px;
+			border-radius: 3px; 
+		}
+
+		.close {
+			position: absolute;
+			top: -5px;
+			right: -5px;
+		}
+
+		.modal-footer {
+			display: unset;
+			border: none;
+			text-align: center;
+			border-radius: 5px;
+			font-size: 13px;
+		}
+
+		.icon-box {
+			color: #fff;		
+			position: absolute;
+			margin: 0 auto;
+			left: 0;
+			right: 0;
+			top: -70px;
+			width: 95px;
+			height: 95px;
+			border-radius: 50%;
+			z-index: 9;
+			background: #5dade2;
+			padding: 15px;
+			text-align: center;
+			box-shadow: 0px 2px 2px RGBA(0, 0, 0, 0.1);
+		}
+
+		.icon-box i {
+			font-size: 56px;
+			position: relative;
+			top: 4px;
+		}
+
+		.modal-dialog {
+			margin-top: 80px;
+		}
+
+		.btn {
+			color: #fff;
+			border-radius: 4px;
+			background: #5dade2;
+			text-decoration: none;
+			transition: all 0.4s;
+			line-height: normal;
+			border: none;
+		}
+
+		.btn:hover, .btn:focus {
+			background: #3498db;
+			outline: none;
+		}
+	}
+}
+
+.postForm {
+	background-color: #eff1f5;
+	.POT-footer {
+		width: 100%;
+	}
+	
+	.footer-inner {
+		width: 80%;
+		margin: 0 auto;
+		padding-top: 25px;
+		padding-bottom: 30px;
+	}
+	
+	ul.footer-links {
+		list-style: none;
+		text-align: right;
+		margin-top: -20px;
+		padding: 0;
+		li {
+			float: right;
+			i {
+				display: block;
+				font-size: 0;
+				width: 20px;
+				height: 20px;
+				&.naver-blog {
+					background-image: url(/assets/naver_blog.png);
+					background-size: 20px 20px;
+				}
+			}
+		}
+	}
+	
+	.seperator {
+		max-width: 80%;
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		margin-bottom: 0;
+	}
+	
+	.fa-asterisk {
+		vertical-align: super;
+		font-size: 0.5rem;
+	}
+
+	.matching-div {
+		max-width: 20%;
+	}
+
+	.formTitle {
+		display: block;
+		margin-bottom: 2vh;
+		font-size: larger;
+	}
+
+	.formContainer {
+		margin-bottom: 3vh;
+	}
+
+	.image-cover {
+		position: relative;
+	}
+
+	.role-image {
+		background-color: #000;
+		border-radius: 100%;
+		border-style: outset;
+		border-width: 2px;
+		cursor: pointer;
+		&.front {
+			position: relative;
+			z-index: 3;
+			opacity: 1;
+			-webkit-transition: .2s ease-in-out;
+			transition: .2s ease-in-out;
+		}
+
+		&.back {
+			position: absolute;
+			z-index: 2;
+			left: 0;
+		}
+
+		&.front:hover {
+			opacity: .3;
+		}
+	}
+	
+	.hidden {
+		display: none;
+	}
+	
+	.card {
+		margin-top: 10vh;
+		border: 1px solid #e9eff4;
+		border-radius: 6px;
+	}
+}
+/* .postForm .select-game-img {
+	position: relative;
+	width: 100vw;
+	height: calc(100vh);
+	background-size: cover;
+	background-repeat: no-repeat;
+} */
